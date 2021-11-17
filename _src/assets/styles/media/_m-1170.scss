@@ -1,0 +1,24 @@
+@import "mixins";
+
+html {
+  font-size: 17px!important;
+
+  h2 {
+    @include rem(margin-bottom, 30px);
+    color: #2ecc71;
+    @include rem(font-size, 35px);
+    line-height: .9;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .left__block {
+    .home__btn {
+      font-size: 0.9rem;
+    }
+  }
+
+
+}
+
+

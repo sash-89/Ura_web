@@ -1,0 +1,29 @@
+@import "mixins";
+
+.toolbar {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  .menu_icon_btn {
+    margin-left: 0 !important;
+  }
+}
+
+.search_block {
+  width: 360px !important;
+}
+
+.header_right {
+  margin-left: 0!important;
+}
+
+.header_bottom_menu_title {
+  font-size: 14px !important;
+}
+
+.content {
+  padding: 56px 100px 128px 100px !important;
+}
+
+.footer_content {
+  width: 90% !important;
+}

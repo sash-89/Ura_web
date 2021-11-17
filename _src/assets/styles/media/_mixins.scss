@@ -1,0 +1,5 @@
+$fz: 18px;
+
+@mixin rem($property, $size) {
+  #{$property} : $size / $fz * 1rem;
+}
