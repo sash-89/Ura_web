@@ -27,6 +27,7 @@
     "jsx-a11y/no-noninteractive-element-interactions": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "@next/next/no-img-element": "off",
+    "jsx-a11y/anchor-is-valid": 0,
     "react/forbid-prop-types": [1, {
       "forbid": [],
       "checkContextTypes": true,
@@ -37,6 +38,7 @@
     "no-underscore-dangle": [0],
     "radix": [0],
     "react/static-property-placement": [0],
+
     "react/jsx-props-no-spreading": [0],
     "jsx-a11y/label-has-associated-control": [1, {
       "labelComponents": ["CustomLabel"],

@@ -15,6 +15,15 @@ class demoData {
       { id: 6, title: 'Test', img: img1 },
     ];
 
+  static categories1 = [
+    { id: 1, title: 'Clothing', img: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg' },
+    { id: 2, title: 'Shoes', img: 'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg' },
+    { id: 3, title: 'Watches', img: 'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg' },
+    { id: 4, title: 'Toys', img: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg' },
+    { id: 5, title: 'Bags', img: 'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_960_720.jpg' },
+    { id: 6, title: 'Toys / Girls / dolls / fashion / Shoes', img: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg' },
+  ];
+
     static bestDeals = [
       { id: 1, modal: true, img: demo },
       { id: 2, modal: false, img: demo },
