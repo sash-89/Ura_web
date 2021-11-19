@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
 import Tshirt from '../../assets/icons/007-tshirt.svg';
 import CategoryImg from '../../assets/images/categoryImg.png';
+import SearchInput from '../form/SearchInput';
 
 function LeftMenu({ open, onClose }) {
   LeftMenu.propTypes = {
@@ -35,19 +36,8 @@ function LeftMenu({ open, onClose }) {
           className="left_menu_wrapper"
           role="presentation"
         >
-          <div className="search_in_menu">
-            <InputBase
-              className="search_input_in_menu"
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-              endAdornment={(
-                <InputAdornment
-                  position="end"
-                >
-                  <SearchIcon />
-                </InputAdornment>
-                )}
-            />
+          <div className="search__wrapper">
+            <SearchInput />
           </div>
 
           <List className="category__list__wrapper">
@@ -69,14 +59,14 @@ function LeftMenu({ open, onClose }) {
       </Drawer>
 
       {open && (
-      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-      <div
-        className="backdrop"
-        onClick={() => {
-          onClose();
-          setIsSubMenuOpen(false);
-        }}
-      />
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div
+          className="backdrop"
+          onClick={() => {
+            onClose();
+            setIsSubMenuOpen(false);
+          }}
+        />
       )}
 
       <div className={`left_sub_menu ${isSubMenuOpen && 'open'}`}>
