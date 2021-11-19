@@ -51,7 +51,7 @@ function Header() {
               component="div"
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              <UraaLogo />
+              <UraaLogo width="73" height="46" fill="white" />
             </Typography>
 
             <div className="search_block">
