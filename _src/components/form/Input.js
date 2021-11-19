@@ -7,21 +7,21 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import PropTypes from 'prop-types';
 
 function Input({
-  value, title, onChange, type, style,
+  value, title, onChange, type, className,
 }) {
   Input.propTypes = {
     value: PropTypes.string,
     title: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     type: PropTypes.string,
-    style: PropTypes.any,
+    className: PropTypes.any,
   };
 
   Input.defaultProps = {
     value: '',
     title: '',
     type: 'text',
-    style: null,
+    className: null,
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -29,10 +29,9 @@ function Input({
   const handleChange = (ev) => onChange(ev);
 
   return (
-    <form className="input_form">
+    <form className={`input_form ${className && className}`}>
       <input
-        className="pass_input"
-        style={style}
+        className={`pass_input ${className && className}`}
         type={!showPassword ? 'text' : 'password'}
         placeholder={title}
         value={value}
