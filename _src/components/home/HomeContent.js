@@ -124,7 +124,7 @@ function HomeContent() {
                   up to 20%
                 </div>
                 <div className="bestDeals_item_img">
-                  <Image width={390} height={381} alt="" src={i.img} />
+                  <Image layout="fixed" width={390} height={381} alt="" src={i.img} />
                 </div>
                 <div className="bestDeals_item_info">
                   <div className="bestDeals_item_info_background" />
@@ -183,7 +183,7 @@ function HomeContent() {
         </Carousel>
       </div>
 
-      <div className="categories_slider_block">
+      <div style={{ backgroundColor: '#FFFFFF' }} className="categories_slider_block">
         <div className="categories_slider_block_header">
           <p>Categories</p>
           <span>VIEW ALL</span>
@@ -206,7 +206,7 @@ function HomeContent() {
             demoData.categories.map((i) => (
               <div key={i.id}>
                 <div className="categories_slider_block_img">
-                  <Image width={186} height={220} alt="" src={i.img} />
+                  <Image layout="fixed" width={186} height={220} alt="" src={i.img} />
                 </div>
                 <p className="categories_title">{i.title}</p>
               </div>
