@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import classes from './categories.module.scss';
 import Wrapper from '../../_src/components/_common/Wrapper';
 import Breadcrumbs from '../../_src/components/breadcrumbs/breadcrumbs';
-import demoData from '../../demoData';
 import SearchInput from '../../_src/components/form/SearchInput';
 import SearchNotFound from '../../_src/components/searchNotFound/searchNotFound';
+import demoData from '../../demoData';
 
 const links = [{
   link: '/',
@@ -14,7 +14,7 @@ const links = [{
   title: 'All Categories',
 }];
 
-const Index = () => {
+const Categories = () => {
   const [searchingValue, setSearchingValue] = useState('');
 
   return (
@@ -28,7 +28,7 @@ const Index = () => {
         </div>
 
         <div className={classes.categories_wrapper}>
-          {false
+          {demoData.categories1.length
             ? demoData.categories1.map((category) => (
               <div key={category.id} className={classes.category_wrapper}>
                 <div className={classes.category_image_wrapper}>
@@ -79,4 +79,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Categories;
