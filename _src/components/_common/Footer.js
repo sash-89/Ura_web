@@ -10,7 +10,10 @@ function Footer() {
     <footer id="footer">
       <div className="footer_content">
         <div className="footer_nav_block">
-          <UraaLogo />
+          <div className="footer_logo_block">
+            <UraaLogo fill="white" />
+            <p>Contact us</p>
+          </div>
           <ul>
             <li className="list_title">Shop</li>
             <li>Best deals</li>
@@ -28,6 +31,7 @@ function Footer() {
           <ul>
             <li className="list_title">Account</li>
             <li>Price it</li>
+            <li>Basket</li>
             <li>Wishlist</li>
             <li>Last Item</li>
             <li>Friends</li>
@@ -49,10 +53,12 @@ function Footer() {
                 <p className="google_play_block_text">Google Play</p>
               </div>
             </div>
+            <div className="extension_text">
+              <p>Web extension</p>
+              <p className="extension_link">Chrome</p>
+              <p className="extension_link">Safari</p>
+            </div>
           </ul>
-        </div>
-        <div className="extension_text">
-          <p>Web extension</p>
         </div>
         <hr />
         <div className="footer_bottom_content">
