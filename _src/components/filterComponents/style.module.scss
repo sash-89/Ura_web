@@ -1,0 +1,57 @@
+.filters_wrapper,
+.color_filter_wrapper{
+  height: auto;
+  max-height: 253px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: #C8C7CC;
+    border: 1px solid white;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #FF6600;
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c45003;
+    cursor: pointer;
+  }
+
+  .color,
+  .option {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    height: 31px;
+    line-height: 24px;
+    color: #272744;
+    cursor: pointer;
+    padding: 0;
+
+    &.checked {
+      color: #FF6600;
+    }
+
+    &:hover {
+      background: rgba(210, 210, 210, 0.25);
+      border-radius: 4px;
+    }
+
+    .checkbox {
+      padding: 0;
+      margin-right: 6px;
+    }
+  }
+}

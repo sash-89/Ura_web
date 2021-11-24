@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Checkbox } from '@mui/material';
 import Wrapper from '../../_src/components/_common/Wrapper';
 import Range from '../../_src/components/range/Range';
 import classes from './filters.module.scss';
@@ -7,6 +7,8 @@ import Breadcrumbs from '../../_src/components/breadcrumbs/breadcrumbs';
 import TextButton from '../../_src/components/form/TextButton';
 import Chip from '../../_src/components/chip/Chip';
 import FilterAccordion from '../../_src/components/filterAccordion/FilterAccordion';
+import FiltersList from '../../_src/components/filterComponents/FiltersList';
+import ColorFilterList from '../../_src/components/filterComponents/ColorFilterList';
 
 const links = [{
   link: '/',
@@ -75,6 +77,26 @@ const Filters = () => {
               />
             </FilterAccordion>
 
+            <FilterAccordion
+              title="Size"
+              search
+            >
+              <FiltersList />
+            </FilterAccordion>
+
+            <FilterAccordion
+              title="Color"
+              search
+            >
+              <ColorFilterList />
+            </FilterAccordion>
+
+            <FilterAccordion
+              title="Brand"
+              search
+            >
+              <FiltersList />
+            </FilterAccordion>
           </div>
 
           <div className={classes.right__block}>

@@ -1,5 +1,7 @@
 .wrapper {
   width: 100%;
+  border-bottom: 1px solid #AFAFC0;
+  margin-bottom: 32px;
 
   .top {
     display: flex;
@@ -50,5 +52,11 @@
     }
 
 
+  }
+
+  .content_wrapper {
+    .search_wrapper{
+      margin-bottom: 5px;
+    }
   }
 }
