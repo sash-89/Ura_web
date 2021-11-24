@@ -1,4 +1,25 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["inline-react-svg"]
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "preset-default",
+              "params": {
+                "overrides": {
+                  "cleanupIDs": false,
+                  "removeViewBox": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  ]
 }

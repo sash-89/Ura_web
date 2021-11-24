@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  background: #F2EEEE;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #272744;
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+
+  .clear__svg {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-left: 8px;
+
+    &:hover {
+      path {
+        stroke: rgba(163, 163, 186, 0.8);
+      }
+    }
+  }
+}

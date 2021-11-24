@@ -1,0 +1,48 @@
+.wrapper {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 42px;
+
+    .sorting_wrapper {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: capitalize;
+      color: #272744;
+    }
+  }
+
+  .content {
+    display: flex;
+
+    .left__block {
+      min-width: 264px;
+      max-width: 264px;
+      margin-right: 64px;
+
+      .selected_filters {
+
+        .selected_filters_top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          color: #272744;
+        }
+
+        .selected_filters_wrapper {
+          padding: 9px 0 8px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .right__block {
+      width: 100%;
+    }
+  }
+}

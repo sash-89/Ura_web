@@ -1,0 +1,54 @@
+.wrapper {
+  width: 100%;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #272744;
+    margin-bottom: 8px;
+
+    .toggle_wrapper {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        .plus_svg,
+        .minus_svg {
+          path {
+            stroke: rgba(39, 39, 68, 0.5);
+          }
+        }
+      }
+
+      .minus_wrapper {
+        display: flex;
+        align-items: center;
+        padding: 7px 0;
+      }
+
+      .plus_svg,
+      .minus_svg {
+        path {
+          stroke: rgb(39, 39, 68);
+        }
+      }
+
+      .plus_svg {
+        width: 15px;
+        position: relative;
+        left: 1.5px;
+
+        path {
+          stroke-width: 3px;
+        }
+      }
+    }
+
+
+  }
+}

@@ -3,12 +3,12 @@ import { InputAdornment, InputBase } from '@mui/material';
 import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 
-function SearchInput({ value, onChange}) {
+function SearchInput({ value, onChange, placeholder }) {
   return (
     <div className="search_in_menu">
       <InputBase
         className="search_input_in_menu"
-        placeholder="Search…"
+        placeholder={placeholder}
         value={value}
         onChange={({ target }) => onChange(target.value)}
         endAdornment={(
@@ -25,11 +25,13 @@ function SearchInput({ value, onChange}) {
 
 SearchInput.propTypes = {
   value: PropTypes.string,
+  placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 SearchInput.defaultProps = {
   value: '',
+  placeholder: 'Search Category',
 };
 
 export default SearchInput;

@@ -10,11 +10,56 @@ class Utils {
     return reg.test(String(email).toLowerCase());
   };
 
-  static phoneNumberValidator = (phoneNumber) => {
-    const reg = /^(\+?(?:[\s-]?\d+))\s?\(?([\d]{1,10}(?:[\s-]?\d+))(\)?(?:[\s-]?\d+))[\d]{1,12}(?:[\s-]?\d+)+$/g;
+  static deleteEmptyKeys = (object) => {
+    const obj = _.cloneDeep(object);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const propName in obj) {
+      if (typeof obj[propName] !== 'boolean' && !obj[propName]) {
+        delete obj[propName];
+      }
+    }
 
-    return reg.test(String(phoneNumber));
-  }
+    return obj;
+  };
+
+  static keyPressOnlyNumber = (e, past, positiveNumber) => {
+    let { value } = e.target;
+    const { selectionStart } = e.target;
+    value = value.replace('%', '');
+
+    const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
+
+    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+    const valueToNumber = +val;
+
+    if (e.which === 32 || (positiveNumber ? +val.slice(0, 1) === 0 : false) || isNaN(valueToNumber) || val.includes('.') || val.includes('e')) {
+      e.preventDefault();
+    }
+  };
+
+  static keyPressPhoneNumber = (e, past) => {
+    const { selectionStart, value } = e.target;
+    const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
+
+    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+
+    if (!/^\+?[0-9]*$/.test(val)) {
+      e.preventDefault();
+    }
+  };
+
+  static keyPressCurrency = (e, past, maxValue) => {
+    const { selectionStart, value } = e.target;
+    const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
+
+    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+    const valueToNumber = +val;
+
+    if (e.which === 32 || (value && +value.slice(0, 1) === 0 && val.slice(1, 2) !== '.') || (val.slice(0, 1) === '.' && !isNaN(+val.slice(1, val.length)
+      .replace('.', 'nun')) ? false : isNaN(valueToNumber)) || val.includes('e') || (maxValue && valueToNumber > maxValue)) {
+      e.preventDefault();
+    }
+  };
 
   static formData = (data) => ObjectToFormData.serialize(data)
 
