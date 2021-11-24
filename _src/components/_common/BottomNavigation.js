@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Box } from '@mui/material';
 import PriceIt from '../../assets/icons/price_it.svg';
 import Basket from '../../assets/icons/basket.svg';
@@ -28,7 +29,8 @@ const nav = [
 ];
 
 function BottomNavigation() {
-  // const activeLink = window.location.pathname;
+  const active = useRouter();
+  const activeMenu = active.pathname;
   const [state, setState] = useState(false);
   return (
     <Box className="header_bottom_menu">
@@ -42,13 +44,15 @@ function BottomNavigation() {
                   <span
                     className={item.id === 1
                       ? 'header_bottom_menu_item_first_count'
-                      : 'header_bottom_menu_item__count'}
+                      : `header_bottom_menu_item__count ${activeMenu === item.link && 'active_menu'}`}
                   >
                     {item.count}
                   </span>
                   ) }
-                  <item.svg />
-                  <p className="header_bottom_menu_title">{item.label}</p>
+                  <item.svg className={activeMenu === item.link ? 'active_menu_svg' : null} />
+                  <p className={`header_bottom_menu_title ${activeMenu === item.link && 'active_menu'}`}>
+                    {item.label}
+                  </p>
                 </a>
               </Link>
             ))
