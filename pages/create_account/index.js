@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Card, CardContent, Typography, Box, Container,
   CardActions, Checkbox, FormControlLabel,
@@ -10,9 +11,13 @@ import Facebook from '../../_src/assets/icons/facebook2.svg';
 import Google from '../../_src/assets/icons/google2.svg';
 import Apple from '../../_src/assets/icons/apple2.svg';
 import Instagram2 from '../../_src/assets/icons/instagram2.svg';
+import { registrationRequest } from "../../_src/store/actions/actions";
 
 function Index() {
   const [accountInfo, setAccountInfo] = useState({ email: '', password: '' });
+  const [check, setCheck] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = (name, val) => {
     const newState = { ...accountInfo };
@@ -20,10 +25,18 @@ function Index() {
     setAccountInfo(newState);
   };
 
+
+
+  const request = async () => {
+    setLoading(true);
+    const { payload } = await dispatch(registrationRequest(accountInfo))
+    setLoading(false);
+  }
+
   return (
     <div className="login_container">
       <Container maxWidth="sm">
-        <Card className="create_account_card">
+        <div className="create_account_card bowS">
           <CardContent>
             <Box display="flex" justifyContent="space-between">
               <Typography className="login_title">
@@ -49,7 +62,8 @@ function Index() {
             <Box className="checkbox_container" display="flex" justifyContent="space-between" alignItems="center">
               <FormControlLabel
                 className="forgot_text"
-                control={<Checkbox defaultChecked />}
+                control={<Checkbox checked={check} />}
+                onChange={() => setCheck(!check)}
                 label={(
                   <p className="terms_link">
                     I agree to Uraaa.com
@@ -65,12 +79,14 @@ function Index() {
             <Box className="btn_container">
               <ButtonComponent
                 title="Create account"
-                onClick={() => {}}
+                onClick={request}
+                disabled={!check}
+                loading={loading}
               />
             </Box>
           </CardActions>
 
-          <Box sx={{ mt: 4, mb: 1 }} className="hr_container">
+          <Box className="hr_container">
             <hr />
             <Typography>Or continue with</Typography>
             <hr />
@@ -94,10 +110,14 @@ function Index() {
               <Typography>Instagram</Typography>
             </Box>
           </Box>
-        </Card>
+        </div>
       </Container>
     </div>
   );
 }
+
+Index.getInitialProps = async ({ store }) => {
+  // const { reducer: { solutions } } = store.getState();
+};
 
 export default Index;

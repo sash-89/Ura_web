@@ -32,7 +32,8 @@ function Input({
     <form className={`input_form ${className && className}`}>
       <input
         className={`pass_input ${className && className}`}
-        type={!showPassword ? 'text' : 'password'}
+        /* eslint-disable-next-line no-nested-ternary */
+        type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
         placeholder={title}
         value={value}
         onChange={handleChange}

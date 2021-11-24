@@ -10,14 +10,9 @@ import UraaLogo from '../../assets/icons/ura_logo_main.svg';
 import Flag from '../../assets/icons/lang_flag.svg';
 import AvatarImage from '../../assets/images/Ellipse.png';
 import ArrowBottom from '../../assets/icons/arrow-bottom.svg';
-import PriceIt from '../../assets/icons/price_it.svg';
-import Basket from '../../assets/icons/basket.svg';
-import Wishlist from '../../assets/icons/wishlist.svg';
-import LastItem from '../../assets/icons/last_item.svg';
-import Friends from '../../assets/icons/friends.svg';
-import Notifications from '../../assets/icons/notifications.svg';
 import Profile from '../../assets/icons/profile.svg';
 import LeftMenu from './LeftMenu';
+import BottomNavigation from './BottomNavigation';
 
 function Header() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -33,7 +28,7 @@ function Header() {
       <AppBar id="header" position="static">
 
         <Toolbar className="toolbar">
-          <>
+          <div className="header_left_wrapper">
             <IconButton
               size="large"
               edge="start"
@@ -43,36 +38,32 @@ function Header() {
               sx={{ ml: 3 }}
               onClick={() => setIsOpenMenu(true)}
             >
-              <MenuIcon fontSize="large" />
+              <MenuIcon htmlColor="white" fontSize="large" />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              <UraaLogo width="73" height="46" fill="white" />
-            </Typography>
 
-            <div className="search_block">
-              <InputBase
-                className="search_input_in_header"
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-              <SearchIcon />
-            </div>
-          </>
-          <Box display="flex" alignItems="center">
-            <Flag />
-            <Typography sx={{ ml: 1, mr: 1 }}>
-              English
-            </Typography>
-            <ArrowBottom />
-          </Box>
+            <UraaLogo width="73" height="46" fill="white" />
+          </div>
 
-          <Box className="header_right" sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {
+          <div className="search_block">
+            <InputBase
+              className="search_input_in_header"
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            <SearchIcon />
+          </div>
+
+          <div className="header_right_wrapper">
+            <Box display="flex" alignItems="center">
+              <Flag />
+              <Typography className="lang" sx={{ ml: 1, mr: 1 }}>
+                English
+              </Typography>
+              <ArrowBottom />
+            </Box>
+
+            <Box className="header_right" sx={{ display: { xs: 'none', md: 'flex' } }}>
+              {
                 isLogin ? (
                   <>
                     <Image alt="" src={AvatarImage} />
@@ -90,50 +81,12 @@ function Header() {
                   </Link>
                 )
               }
-          </Box>
+            </Box>
+          </div>
+
         </Toolbar>
 
-        <Box className="header_bottom_menu">
-          <div className="header_bottom_menu_item">
-            <span className="header_bottom_menu_item_first_count">
-              22
-            </span>
-            <PriceIt />
-            <p className="header_bottom_menu_title">Price it</p>
-          </div>
-          <div className="header_bottom_menu_item">
-            <span className="header_bottom_menu_item__count">
-              2
-            </span>
-            <Basket />
-            <p className="header_bottom_menu_title">Basket</p>
-          </div>
-          <div className="header_bottom_menu_item">
-            <span className="header_bottom_menu_item__count">
-              22
-            </span>
-            <Wishlist />
-            <p className="header_bottom_menu_title">Wishlist</p>
-          </div>
-          <div className="header_bottom_menu_item">
-            <span className="header_bottom_menu_item__count">
-              22
-            </span>
-            <LastItem />
-            <p className="header_bottom_menu_title">Last item</p>
-          </div>
-          <div className="header_bottom_menu_item">
-            <Friends />
-            <p className="header_bottom_menu_title">Friends</p>
-          </div>
-          <div style={{ border: 'none' }} className="header_bottom_menu_item">
-            <span className="header_bottom_menu_item__count">
-              22
-            </span>
-            <Notifications />
-            <p className="header_bottom_menu_title">Notifications</p>
-          </div>
-        </Box>
+        <BottomNavigation />
 
       </AppBar>
     </>

@@ -2,6 +2,10 @@
   @import "m-1919";
 }
 
+@media only screen and (max-width: 1600px) {
+  @import "m-1440";
+}
+
 @media only screen and (max-width: 1170px) {
   @import "m-1170";
 }

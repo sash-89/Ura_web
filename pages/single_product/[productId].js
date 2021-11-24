@@ -18,6 +18,7 @@ import Right from '../../_src/assets/icons/right.svg';
 import SelectComponent from '../../_src/components/form/Select';
 import ButtonComponent from '../../_src/components/form/ButtonComponent';
 import demoData from '../../demoData';
+import QtyCounter from '../../_src/components/_common/QtyCounter';
 
 const imgArray = [SingleImg2, SingleProduct, SingleImg3, SingleImg4, SingleImg2];
 const size = [36, 36.5, 37, 37.5, 38, 38.5, 39, 39.5];
@@ -25,7 +26,6 @@ const size = [36, 36.5, 37, 37.5, 38, 38.5, 39, 39.5];
 function Index() {
   const router = useRouter();
   const [activeImg, setActiveImg] = useState(SingleProduct);
-  const [qtyCount, setQtyCount] = useState(1);
   const { productId } = router.query;
   console.log(productId);
   const imgGroup = _.chunk(imgArray, 5);
@@ -112,15 +112,8 @@ function Index() {
             title="Material"
             options={[]}
           />
-          <div className="qty_block">
-            <p>Qty</p>
-            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-            <span onClick={() => setQtyCount(qtyCount - 1)}>-</span>
-            <div>
-              {qtyCount}
-            </div>
-            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-            <span onClick={() => setQtyCount(qtyCount + 1)}>+</span>
+          <div className="qty_wrapper">
+            <QtyCounter />
           </div>
           <div>
             <ButtonComponent
@@ -159,7 +152,7 @@ function Index() {
         </div>
         <Carousel
           className="single_prod_slider"
-          height={410}
+          height={460}
           slidesToShow={3}
           renderBottomCenterControls={false}
           renderCenterLeftControls={({ previousSlide }) => (
@@ -177,8 +170,9 @@ function Index() {
         >
           {
             demoData.categories.map((i) => (
-              <div className="slider_block_img_in_prod">
-                <Image layout="fixed" width={280} height={220} alt="" src={i.img} />
+              <div key={i.id} className="slider_block_img_in_prod">
+                {/* eslint-disable-next-line max-len */}
+                <img alt="" src="https://rukminim1.flixcart.com/image/332/398/kmwcuq80/shoe/w/u/s/7-444-gry-org-bruton-orange-original-imagfp7fzz5ftzfc.jpeg?q=50" />
                 <Box>
                   <div className="relevant_prod_info">
                     <p className="prod_name">Item Name</p>
@@ -212,7 +206,7 @@ function Index() {
         </div>
         <Carousel
           className="single_prod_slider"
-          height={410}
+          height={460}
           slidesToShow={3}
           renderBottomCenterControls={false}
           renderCenterLeftControls={({ previousSlide }) => (
@@ -230,8 +224,9 @@ function Index() {
         >
           {
               demoData.categories.map((i) => (
-                <div className="slider_block_img_in_prod">
-                  <Image layout="fixed" width={280} height={220} alt="" src={i.img} />
+                <div key={i.id} className="slider_block_img_in_prod">
+                  {/* eslint-disable-next-line max-len */}
+                  <img alt="" src="https://cdn.shopify.com/s/files/1/0833/9171/t/4/assets/slide_3.jpg?v=16107611901145265677" />
                   <Box>
                     <div className="relevant_prod_info">
                       <p className="prod_name">Item Name</p>
@@ -248,7 +243,7 @@ function Index() {
                       </div>
                       <div className="price_block">
                         <p className="prod_price">$ 20,000,000</p>
-                        <p className="prod_active_price">$ 10,000,000</p>
+                        <p className="prod_active_price">$ 15,000,000</p>
                       </div>
                     </div>
                   </Box>
@@ -292,8 +287,41 @@ function Index() {
             </div>
           </div>
         </div>
+        <div className="review_wrapper">
+          <Image layout="fixed" width={46} height={46} src={AvatarImage} alt="" />
+          <div className="review_item_block">
+            <div className="review_item_header">
+              <div className="review_item_header_left">
+                <p className="name">Lusine Dashtoyan</p>
+                <div className="single_product_info_rating_block">
+                  <Rating
+                    className="rating"
+                    readOnly
+                    name="half-rating"
+                    defaultValue={3}
+                    precision={0.5}
+                  />
+                  <p>4.7</p>
+                </div>
+              </div>
+              <p className="date">08 Juli 2021</p>
+            </div>
+            <p className="review">
+              The Oyster Perpetual Submariner is a reference among divers’ watches;
+              it is the watch that unlocked the deep.
+              Launched in 1953, the Submariner was the first divers’ wristwatch waterproof
+              to a depth of 100 meters (330feet).
+              This was the second great breakthrough in the technical mastery of waterproofness,
+              following the invention of the
+            </p>
+            <div>
+              <Image src={CommentImg} alt="" />
+            </div>
+          </div>
+        </div>
         <p className="load_more_btn">LOAD MORE</p>
       </div>
+
     </Wrapper>
   );
 }
