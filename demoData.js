@@ -25,10 +25,10 @@ class demoData {
   ];
 
     static bestDeals = [
-      { id: 1, modal: true, img: demo },
-      { id: 2, modal: false, img: demo },
-      { id: 3, modal: false, img: demo },
-      { id: 4, modal: false, img: demo },
+      { id: 1, modal: true, img: 'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg' },
+      { id: 2, modal: false, img: 'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg' },
+      { id: 3, modal: false, img: 'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg' },
+      { id: 4, modal: false, img: 'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg' },
     ];
 }
 

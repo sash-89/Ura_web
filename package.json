@@ -2,9 +2,9 @@
   "name": "ura-website",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080",
-    "build": "next build",
-    "start": "next start",
+    "dev": "NEXT_APP_MODE=dev next dev -p 8080",
+    "build": "NEXT_APP_MODE=prod next build",
+    "start": "NEXT_APP_MODE=prod next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "@mui/styles": "^5.1.1",
     "axios": "^0.24.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
+    "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "next": "12.0.2",
     "next-redux-wrapper": "^7.0.5",

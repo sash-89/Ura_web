@@ -24,7 +24,7 @@ function Index() {
 
   return (
     <div className="login_container">
-      <UraaLogo width={73} height={80} fill="#FF6600"/>
+      <UraaLogo width={100} height={86} fill="#FF6600"/>
         <div className="login_card bowS">
             <Box display="flex" justifyContent="space-between">
               <Typography className="login_title">

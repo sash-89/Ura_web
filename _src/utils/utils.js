@@ -1,13 +1,9 @@
 import ObjectToFormData from 'object-to-formdata';
+import Cookie from 'js-cookie';
+import _ from 'lodash';
 
 class Utils {
   // static correctMediaUrl = (url) => `${API_URL}${url}`;
-
-  static emailValidator = (email) => {
-    const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    return reg.test(String(email).toLowerCase());
-  };
 
   static deleteEmptyKeys = (object) => {
     const obj = _.cloneDeep(object);
@@ -28,10 +24,15 @@ class Utils {
 
     const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
 
-    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+    const val = past
+      ? pastValueWithCurrentValue
+      : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
     const valueToNumber = +val;
 
-    if (e.which === 32 || (positiveNumber ? +val.slice(0, 1) === 0 : false) || isNaN(valueToNumber) || val.includes('.') || val.includes('e')) {
+    if (e.which === 32 || (positiveNumber
+    // eslint-disable-next-line no-restricted-globals
+      ? +val.slice(0, 1) === 0 : false) || isNaN(valueToNumber)
+        || val.includes('.') || val.includes('e')) {
       e.preventDefault();
     }
   };
@@ -40,7 +41,9 @@ class Utils {
     const { selectionStart, value } = e.target;
     const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
 
-    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+    const val = past
+      ? pastValueWithCurrentValue
+      : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
 
     if (!/^\+?[0-9]*$/.test(val)) {
       e.preventDefault();
@@ -51,16 +54,39 @@ class Utils {
     const { selectionStart, value } = e.target;
     const pastValueWithCurrentValue = value.slice(0, selectionStart) + e?.clipboardData?.getData('text');
 
-    const val = past ? pastValueWithCurrentValue : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
+    const val = past
+      ? pastValueWithCurrentValue
+      : value.substring(0, selectionStart) + e.key + value.substring(selectionStart, value.length);
     const valueToNumber = +val;
 
-    if (e.which === 32 || (value && +value.slice(0, 1) === 0 && val.slice(1, 2) !== '.') || (val.slice(0, 1) === '.' && !isNaN(+val.slice(1, val.length)
-      .replace('.', 'nun')) ? false : isNaN(valueToNumber)) || val.includes('e') || (maxValue && valueToNumber > maxValue)) {
+    if (e.which === 32 || (value && +value.slice(0, 1) === 0 && val.slice(1, 2) !== '.')
+        // eslint-disable-next-line no-restricted-globals
+        || (val.slice(0, 1) === '.' && !isNaN(+val.slice(1, val.length)
+          .replace('.', 'nun'))
+        // eslint-disable-next-line no-restricted-globals
+          ? false : isNaN(valueToNumber)) || val.includes('e')
+        || (maxValue && valueToNumber > maxValue)) {
       e.preventDefault();
     }
   };
 
   static formData = (data) => ObjectToFormData.serialize(data)
+
+  static setToken(token) {
+    Cookie.set('token', token);
+  }
+
+  static getToken() {
+    try {
+      return Cookie.get('token') || false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  static removeToken() {
+    Cookie.remove('token');
+  }
 }
 
 export default Utils;

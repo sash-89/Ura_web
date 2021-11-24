@@ -90,7 +90,6 @@ function HomeContent() {
         draggable={false}
         focusOnSelect={false}
         infinite
-        itemClass="carousel-top"
         minimumTouchDrag={80}
         renderButtonGroupOutside={false}
         responsive={responsive}
@@ -124,7 +123,7 @@ function HomeContent() {
                   up to 20%
                 </div>
                 <div className="bestDeals_item_img">
-                  <Image layout="fixed" width={390} height={381} alt="" src={i.img} />
+                  <img className="img" alt="" src={i.img} />
                 </div>
                 <div className="bestDeals_item_info">
                   <div className="bestDeals_item_info_background" />
@@ -183,7 +182,7 @@ function HomeContent() {
         </Carousel>
       </div>
 
-      <div style={{ backgroundColor: '#FFFFFF' }} className="categories_slider_block">
+      <div className="categories_slider_block">
         <div className="categories_slider_block_header">
           <p>Categories</p>
           <span>VIEW ALL</span>
@@ -206,7 +205,12 @@ function HomeContent() {
             demoData.categories.map((i) => (
               <div key={i.id}>
                 <div className="categories_slider_block_img">
-                  <Image layout="fixed" width={186} height={220} alt="" src={i.img} />
+                  <img
+                    className="category_img"
+                    alt=""
+                    /* eslint-disable-next-line max-len */
+                    src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/5bc6230d24924736ab03ab4a009aed6c_9366/Fluidstreet_Shoes_Black_FW1703_01_standard.jpg"
+                  />
                 </div>
                 <p className="categories_title">{i.title}</p>
               </div>

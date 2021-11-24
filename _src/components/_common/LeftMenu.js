@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import {
   Drawer, Box, List, ListItem,
-  InputBase, InputAdornment,
 } from '@mui/material';
 import PropTypes from 'prop-types';
-import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
 import Tshirt from '../../assets/icons/007-tshirt.svg';
 import CategoryImg from '../../assets/images/categoryImg.png';
@@ -37,7 +35,7 @@ function LeftMenu({ open, onClose }) {
           role="presentation"
         >
           <div className="search__wrapper">
-            <SearchInput />
+            <SearchInput placeholder="Search Category" />
           </div>
 
           <List className="category__list__wrapper">
