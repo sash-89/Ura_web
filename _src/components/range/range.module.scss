@@ -1,0 +1,13 @@
+.range_wrapper {
+  width: 100%;
+
+  .range_input_wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    > div {
+      width: calc(50% - 12px);
+    }
+  }
+}

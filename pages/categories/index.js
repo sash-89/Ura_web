@@ -79,4 +79,10 @@ const Categories = () => {
   );
 };
 
+Wrapper.getInitialProps = async ({ store }) => {
+  console.log(3545645, store)
+  //
+  // if (_.isEmpty(solutions)) await store.dispatch(setSolutions());
+};
+
 export default Categories;
